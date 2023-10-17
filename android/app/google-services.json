@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "803365726989",
+    "project_id": "answerproject-1bc53",
+    "storage_bucket": "answerproject-1bc53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803365726989:android:6c13a876f191ad6f455e44",
+        "android_client_info": {
+          "package_name": "br.com.answerme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHNwL_al0r9Y0CqB6XgDmJUTo3Hf79YYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
