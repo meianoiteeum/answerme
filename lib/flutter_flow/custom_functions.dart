@@ -31,6 +31,10 @@ String? getBodyEmail(String? phoneNumber) {
   return 'Phone: $phoneNumber';
 }
 
-MessageRecord? getMessage(String? phoneNumber) {
-  return null;
+MessageStruct? getMessage(String phoneNumber) {
+  var message = new MessageStruct();
+  message.subject = 'Email teste';
+  message.text = 'Esse é o telefone $phoneNumber';
+
+  return message;
 }

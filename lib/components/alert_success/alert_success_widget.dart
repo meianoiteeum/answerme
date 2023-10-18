@@ -153,9 +153,11 @@ class _AlertSuccessWidgetState extends State<AlertSuccessWidget> {
 
                       await MailRecord.collection.doc().set({
                         ...createMailRecordData(
-                          message: functions
-                              .getMessage(_model.textController.text)
-                              ?.reference,
+                          message: updateMessageStruct(
+                            functions.getMessage(_model.textController.text),
+                            clearUnsetFields: false,
+                            create: true,
+                          ),
                         ),
                         ...mapToFirestore(
                           {
