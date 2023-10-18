@@ -22,13 +22,13 @@ class MailRecord extends FirestoreRecord {
   bool hasTo() => _to != null;
 
   // "message" field.
-  DocumentReference? _message;
-  DocumentReference? get message => _message;
+  MessageStruct? _message;
+  MessageStruct get message => _message ?? MessageStruct();
   bool hasMessage() => _message != null;
 
   void _initializeFields() {
     _to = getDataList(snapshotData['to']);
-    _message = snapshotData['message'] as DocumentReference?;
+    _message = MessageStruct.maybeFromMap(snapshotData['message']);
   }
 
   static CollectionReference get collection =>
@@ -65,13 +65,16 @@ class MailRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createMailRecordData({
-  DocumentReference? message,
+  MessageStruct? message,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'message': message,
+      'message': MessageStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "message" field.
+  addMessageStructData(firestoreData, message, 'message');
 
   return firestoreData;
 }
